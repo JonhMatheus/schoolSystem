@@ -34,25 +34,56 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.asset(
-                  'assets/images/logoph3.png',
-                  alignment: Alignment.center,
-                  scale: 2.6,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Text(
-                  'Acessar',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 28,
-                  ),
-                ),
+                buildHead(),
                 const SizedBox(
                   height: 30,
                 ),
-                TextFormField(
+                buildCampos(),
+                const SizedBox(
+                  height: 20,
+                ),
+                checkTheBox(),
+                const SizedBox(
+                  height: 25,
+                ),
+                botaoAcessar(),
+                const SizedBox(
+                  height: 25,
+                ),
+                esqueceuSenha(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildHead() {
+    return Column(
+      children: [
+        Image.asset(
+          'assets/images/logoph3.png',
+          alignment: Alignment.center,
+          scale: 2.6,
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        const Text(
+          'Acessar',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 28,
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget buildCampos(){
+    return Column(
+      children: [TextFormField(
                   controller: loginTextController,
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.all(20),
@@ -130,11 +161,12 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(
+                )],
+    );
+  }
+
+  Widget checkTheBox(){
+    return Row(
                   children: [
                     Checkbox(
                         checkColor: Colors.white,
@@ -169,11 +201,11 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
                       ),
                     )
                   ],
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                GestureDetector(
+                );
+  }
+
+  Widget botaoAcessar(){
+    return GestureDetector(
                   onTap: () => Modular.to.push(MaterialPageRoute(
                       builder: (context) => const HomePage())),
                   child: Container(
@@ -194,22 +226,16 @@ class _AutenticacaoPageState extends State<AutenticacaoPage> {
                           fontSize: 16),
                     )),
                   ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                const Text('Esqueceu a senha?',
+                );
+  }
+
+  Widget esqueceuSenha(){
+    return const Text('Esqueceu a senha?',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Color(
                           0xff09554B,
                         ),
-                        fontSize: 15)),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
+                        fontSize: 15));
   }
 }

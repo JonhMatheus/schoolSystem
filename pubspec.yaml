@@ -21,6 +21,10 @@ flutter:
 
   assets:
     - assets/images/logoph3.png
+    - assets/images/discipline.png
+    - assets/images/schedules.png
+    - assets/images/calendar.png
+    - assets/images/bulletins.png
 
   fonts:
     - family: Poppins
