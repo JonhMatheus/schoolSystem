@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:schoolsystem/anotation/anotion_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,8 +35,12 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(height: 20),
                 Row(
                   children: [
-                    optionsClass('assets/images/discipline.png', 'Disciplinas',
-                        '12 Disciplinas'),
+                    GestureDetector(
+                      onTap: () => Modular.to.push(MaterialPageRoute(
+                          builder: (context) => AnotationPage())),
+                      child: optionsClass('assets/images/discipline.png',
+                          'Disciplinas', '12 Disciplinas'),
+                    ),
                     const SizedBox(
                       width: 15,
                     ),
@@ -69,7 +76,7 @@ class _HomePageState extends State<HomePage> {
       height: 185,
       decoration: const BoxDecoration(
         color: Color(
-          0xff09554B,
+          0xff303A62,
         ),
       ),
       child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -149,14 +156,14 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xff09554B)),
+                  color: Color(0xff303A62)),
             ),
             Text(
               'Ver Mais >',
               style: TextStyle(
                 fontSize: 12,
                 color: Color(
-                  0xff09554B,
+                  0xff303A62,
                 ),
               ),
             ),
@@ -400,7 +407,7 @@ class _HomePageState extends State<HomePage> {
     return const Text(
       'Minha Turma',
       style: TextStyle(
-          fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff09554B)),
+          fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xff303A62)),
     );
   }
 
@@ -410,7 +417,7 @@ class _HomePageState extends State<HomePage> {
       width: 170,
       decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 30)],
+          boxShadow: const[BoxShadow(color: Colors.grey, blurRadius: 30)],
           borderRadius: BorderRadius.circular(15)),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -430,7 +437,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(left: 25),
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Color(0xff000000),
@@ -444,7 +451,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(left: 25),
             child: Text(
               subTitle,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.bold,
                 color: Color(0xff727272),
